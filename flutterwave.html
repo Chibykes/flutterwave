@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <script src="https://checkout.flutterwave.com/v3.js"></script>
+        <button type="button" onClick="makePayment()">Pay Now</button>
+      </form>
+      
+      <script>
+        function makePayment() {
+          FlutterwaveCheckout({
+            public_key: "FLWPUBK_TEST-31d61a13026483fc38f15f0e90232374-X",
+            tx_ref: "hooli-tx-1920bbtyt",
+            amount: 54600,
+            currency: "NGN",
+            country: "NG",
+            payment_options: "card,mobilemoney,ussd",
+            customer: {
+              email: "chibykes99@gmail.com",
+              phone_number: "08168202349",
+              name: "yemi desola",
+            },
+            callback: function (data) { // specified callback function
+              console.log(data);
+            },
+            customizations: {
+              title: "PickGas",
+              description: "Gas delivery",
+              logo: "file:///C:/Users/USER/Desktop/Pick%20Gas/public/meta/homepage.png",
+            },
+          });
+        }
+      </script>
+</body>
+</html>

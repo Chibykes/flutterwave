@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <h1>Hello</h1>
+      
+      <script>
+        fetch('https://api.flutterwave.com/v3/payments', {
+            method: 'post',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer FLWSECK-b3a2f522c6228b1eb6e4b8d69b5e9af7-X'
+            },
+            body: JSON.stringify({
+                "tx_ref":"hooli-tx-1920bbtytty",
+                "amount":"100",
+                "currency":"NGN",
+                "redirect_url":"https://www.pickgas.com",
+                "payment_options":"card",
+                "meta":{
+                    "consumer_id":23,
+                    "consumer_mac":"92a3-912ba-1192a"
+                },
+                "customer":{
+                    "email":"user@gmail.com",
+                    "phonenumber":"080****4528",
+                    "name":"Yemi Desola"
+                },
+                "customizations":{
+                    "title":"Pied Piper Payments",
+                    "description":"Middleout isn't free. Pay the price",
+                    "logo":"https://assets.piedpiper.com/logo.png"
+                }
+            })
+        })
+        .then((response) => {
+            console.log(response.data);
+        }).catch(err => console.error(err));
+      </script>
+</body>
+</html>
